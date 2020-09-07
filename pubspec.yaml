@@ -1,5 +1,5 @@
 name: flutter_apns_env
-description: A new flutter plugin project.
+description: Flutter plugin to detect iOS Sandbox environment.
 version: 0.1.0
 author:
 homepage:
