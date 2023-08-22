@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class FlutterApnsEnv {
@@ -12,10 +13,12 @@ class FlutterApnsEnv {
   }
 
   static Future<bool> isIosAPNSandbox() async {
-    return Platform.isIOS ? await _channel.invokeMethod('isAPNSandbox') : false;
+    return !kIsWeb &&
+        (Platform.isIOS ? await _channel.invokeMethod('isAPNSandbox') : false);
   }
 
   static Future<bool> isIosSimulator() async {
-    return Platform.isIOS ? await _channel.invokeMethod('isSimulator') : false;
+    return !kIsWeb &&
+        (Platform.isIOS ? await _channel.invokeMethod('isSimulator') : false);
   }
 }
